@@ -11,4 +11,5 @@ Steps to install and run this extension:
    `virtualenv ~/kextensions/test_extension/`
 
 4. Install this extension into that directory:
-   `~/kextensions/bin/pip install /path/to/pyexttest/`
+   `pip install git+https://github.com/KevinOConnor/test_extension.git@main`
+   OR: `~/kextensions/bin/pip install /path/to/test_extension/`
