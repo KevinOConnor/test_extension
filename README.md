@@ -13,3 +13,6 @@ Steps to install and run this extension:
 4. Install this extension into that directory:
    `pip install git+https://github.com/KevinOConnor/test_extension.git@main`
    OR: `~/kextensions/bin/pip install /path/to/test_extension/`
+
+5. Add a `[test_extension]` directive to the Klipper "printer.cfg"
+   file.
