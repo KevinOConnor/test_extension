@@ -1,0 +1,6 @@
+# An additional set of printer.cfg config snippets to append.  It is
+# read by testit.py and submitted to Klipper during startup.
+
+[gcode_macro my_macro]
+gcode:
+  ECHO MSG='hello'

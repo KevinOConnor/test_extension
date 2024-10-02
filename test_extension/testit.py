@@ -56,17 +56,19 @@ class SocketHandler:
                 if fd == self.webhook_socket.fileno():
                     self.process_socket()
 
-MY_CONFIG = """
-[gcode_macro my_macro]
-gcode:
-  ECHO MSG='hello'
-"""
+CONFIG_FILE = "config_snippet.txt"
 
 def startup(sh, uuid):
+    # Read config file
+    dir_name = os.path.dirname(__file__)
+    filename = os.path.join(dir_name, CONFIG_FILE)
+    with open(filename, 'r') as cf:
+        cfg_data = cf.read()
+    # Submit commands
     sh.send_cmd({"id": 123, "method": "extmgr/register_extension",
                  "params": {"uuid": uuid}})
     sh.send_cmd({"id": 125, "method": "extmgr/append_config",
-                 "params": {'config': MY_CONFIG}})
+                 "params": {'config': cfg_data}})
     settings = {'test_extension': {'somevalue': 12.3}}
     sh.send_cmd({"id": 124, "method": "extmgr/acknowledge_config",
                  "params": {'config': settings}})

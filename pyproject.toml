@@ -7,3 +7,7 @@ name = "test_extension"
 version = "0.0.1"
 dependencies = [
 ]
+
+# Include config_snippet.txt
+[tool.setuptools.package-data]
+test_extension = ["*.txt"]
